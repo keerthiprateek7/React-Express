@@ -1,11 +1,4 @@
-const express = require('express');
-const router = express.Router();
-var fs = require('fs');
-
-// as you can see from this structure the players are on hole {1, 2, 3, 4}
-
-/*
-const players = {
+{
   graph: [
     { FirstName: 'Joan', LastName: 'Jet', ID: 1, Hole: 1, HoleLocation: 'TEE' },
     {
@@ -87,20 +80,3 @@ const players = {
     },
   ],
 };
-*/
-
-/*
-//testing
-router.get('/', (req, res) => res.send('players are running'));
-*/
-
-router.get('/', (request, response) => {
-  const players = fs.readFileSync('playersdata.json', 'utf-8');
-  //console.log('players...', JSON.stringify(players));
-  console.log('players...', players);
-  response.setHeader('Content-Type', 'application/json');
-  //response.send(JSON.stringify(players));
-  response.send(players);
-});
-
-module.exports = router;
